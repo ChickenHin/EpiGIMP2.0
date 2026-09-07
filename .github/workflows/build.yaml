@@ -1,11 +1,11 @@
 name: Build epigimp
 
 on:
-  pull_request:
-    branches: [ main, dev ]
-    paths-ignore:
-      - "docs/**"
-      - "**/*.md"
+  # pull_request:
+  #   branches: [ main, dev ]
+  #   paths-ignore:
+  #     - "docs/**"
+  #     - "**/*.md"
   workflow_dispatch:
 
 concurrency:
@@ -108,10 +108,10 @@ jobs:
             echo "No tests configured, skipping."
           fi
 
-      - name: Upload artifacts
-        if: github.ref_name == 'main' || github.ref_name == 'dev'
-        uses: actions/upload-artifact@v7
-        with:
-          name: epigimp-${{ runner.os }}-${{ matrix.build-type }}
-          path: build/bin/**
-          retention-days: 7
+      # - name: Upload artifacts
+      #   if: github.ref_name == 'main' || github.ref_name == 'dev'
+      #   uses: actions/upload-artifact@v7
+      #   with:
+      #     name: epigimp-${{ runner.os }}-${{ matrix.build-type }}
+      #     path: build/bin/**
+      #     retention-days: 7
